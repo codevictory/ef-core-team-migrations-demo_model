@@ -1,8 +1,16 @@
-namespace ef_core_team_migrations_demo_model
+namespace Model
 {
     public class Pharaoh
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
+        public int Id
+        {
+            get;
+            set;
+        }
+        public string Name
+        {
+            get;
+            set;
+        }
     }
 }
