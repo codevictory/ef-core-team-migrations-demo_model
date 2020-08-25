@@ -2,16 +2,12 @@
 
 namespace Model
 {
-    public class ModelContext : DbContext
+    public partial class ModelContext : DbContext
     {
-        public ModelContext(DbContextOptions options) : base(options)
-        { }
+        public ModelContext() { }
+        public ModelContext(DbContextOptions options) : base(options) { }
 
-        public DbSet<Pharaoh> Pharaohs
-        {
-            get;
-            set;
-        }
+        public DbSet<Pharaoh> Pharaohs { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,5 +16,9 @@ namespace Model
                 optionsBuilder.UseSqlServer("data source=localhost;initial catalog=MigrationTest;Integrated Security=SSPI;MultipleActiveResultSets=True;App=EntityFramework");
             }
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder) { }
+
+        partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
     }
 }
