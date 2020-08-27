@@ -8,6 +8,7 @@ namespace Model
         public ModelContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Pharaoh> Pharaohs { get; set; }
+        public DbSet<Sargophagus> Sargophagi { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
